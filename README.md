@@ -17,3 +17,13 @@ Bu depo, yaygın web uygulaması güvenlik açıklarını, etkilerini, istismar 
 **Konum**: `/vulnerable-code/app.py`
 
 **Düzeltilmiş Sürüm**: `/fixed-code/app.py`
+### Vektör Bileşenlerinin Açıklaması:
+
+- **AV:N** (Saldırı Vektörü: Ağ) - Güvenlik açığı ağ üzerinden uzaktan istismar edilebilir.
+- **AC:L** (Saldırı Karmaşıklığı: Düşük) - Saldırı, özel koşullar veya durumlar gerektirmez ve tekrarlanabilir.
+- **PR:N** (Gereken Ayrıcalıklar: Yok) - Saldırganın güvenlik açığını istismar etmek için hiçbir ayrıcalığa ihtiyacı yoktur.
+- **UI:N** (Kullanıcı Etkileşimi: Yok) - Güvenlik açığını istismar etmek için kullanıcı etkileşimi gerekmez.
+- **S:C** (Kapsam: Değişmiş) - Savunmasız bileşen, güvenlik kapsamının ötesindeki kaynakları etkiler.
+- **C:H** (Gizlilik: Yüksek) - Gizlilikte tam bir kayıp vardır, saldırganın herhangi bir veritabanı içeriğine erişmesine izin verir.
+- **I:N** (Bütünlük: Yok) - Bu özel uygulamada bütünlük üzerinde bir etki yoktur.
+- **A:N** (Kullanılabilirlik: Yok) - Bu özel uygulamada kullanılabilirlik üzerinde bir etki yoktur.
