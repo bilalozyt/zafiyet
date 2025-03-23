@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Arama - Güvenlik Açığı Sürümü</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .warning {
+            background-color: #ffe0e0;
+            border-left: 5px solid #ff5252;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            margin: 20px 0;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            font-size: 16px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #3367d6;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        h2 {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kullanıcı Arama Uygulaması (Güvenlik Açığı Sürümü)</h1>
+        
+        <div class="warning">
+            <h2>Uyarı: Bu uygulama güvenlik açıkları içermektedir!</h2>
+            <p>Bu uygulama SQL Enjeksiyon güvenlik açığını göstermektedir. Sadece eğitim amaçlıdır.</p>
+        </div>
+        
+        <p>Bu uygulama, veritabanında kullanıcı aramanıza olanak tanır. Arama, arama terimiyle eşleşen kullanıcı adlarını arar.</p>
+        
+        <form action="/search" method="post">
+            <label for="username">Kullanıcı adı ara:</label><br>
+            <input type="text" id="username" name="username" placeholder="Aramak için kullanıcı adı girin..."><br><br>
+            <button type="submit">Ara</button>
+        </form>
+        
+        <div class="hint">
+            <h3>SQL Enjeksiyon Örnekleri:</h3>
+            <ul>
+                <li><code>' OR '1'='1</code> - Tüm kullanıcıları getir</li>
+                <li><code>' OR 1=1 --</code> - Tüm kullanıcıları getir (alternatif sözdizimi)</li>
+                <li><code>' UNION SELECT 1, sql, 3, 4 FROM sqlite_master --</code> - Veritabanı şemasını göster</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
