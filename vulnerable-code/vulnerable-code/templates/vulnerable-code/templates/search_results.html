@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arama Sonuçları - Güvenlik Açığı Sürümü</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .warning {
+            background-color: #ffe0e0;
+            border-left: 5px solid #ff5252;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .query-info {
+            background-color: #e0f7ff;
+            border-left: 5px solid #4285f4;
+            padding: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .error {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Arama Sonuçları (Güvenlik Açığı Sürümü)</h1>
+        
+        <div class="warning">
+            <h2>Uyarı: Bu uygulama güvenlik açıkları içermektedir!</h2>
+            <p>Bu uygulama SQL Enjeksiyon güvenlik açığını göstermektedir. Sadece eğitim amaçlıdır.</p>
+        </div>
+        
+        {% if query %}
+        <div class="query-info">
+            <h3>Çalıştırılan SQL Sorgusu:</h3>
+            <code>{{ query }}</code>
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div class="error">
+            <h3>Hata:</h3>
+            <p>{{ error }}</p>
+        </div>
+        {% else %}
+            {% if results %}
+            <h3>Sonuçlar ({{ results|length }} kullanıcı bulundu):</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>E-posta</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in results %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>Kullanıcı bulunamadı.</p>
+            {% endif %}
+        {% endif %}
+        
+        <p><a href="/">← Aramaya geri dön</a></p>
+    </div>
+</body>
+</html>
