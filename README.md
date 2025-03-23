@@ -11,7 +11,6 @@ Bu depo, yaygın web uygulaması güvenlik açıklarını, etkilerini, istismar 
 **CVSS Puanı**: 8.6 (Yüksek)
 
 
-https://github.com/user-attachments/assets/0e693140-8935-4f43-bbb7-044e4a1fa7c7
 
 
 **CVSS Vektör Dizesi**: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N
